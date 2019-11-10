@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+
+<html ng-app="esServerApp">
+
+<!-- Mirrored from electricsheep.org/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 10 Nov 2019 21:13:32 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <base >
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voyager : Crowdsourced Research</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="theme-color" content="#ff5d20">
+  <meta name="msapplication-TileColor" content="#603cba">
+  <meta name="msapplication-TileImage" content="assets/public/favicons/mstile-144x144.png">
+  <meta name="msapplication-config" content="assets/public/favicons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  <meta property="og:image" content="https_/assets/public/images/5.html">
+  <meta property="og:title" content="Electric Sheep Crowdsourced Evolving Art">
+  <meta property="og:description" content="Electric Sheep is a collaborative abstract artwork run by thousands of people all over the world. When their computers 'sleep', the Electric Sheep comes on and the computers communicate with each other by the internet to share the work of creating morphing abstract animations known as 'sheep'. Anyone watching one of these computers may vote for their favorite animations using the keyboard, which drives a genetic algorithm. Hence the flock evolves to please its global audience. The Electric Sheep are a free and open source service. The HD Gold Sheep have just been released!">
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@ElectricSHE3P">
+  <meta name="twitter:creator" content="@ElectricSHE3P">
+  <meta name="twitter:title" content="Electric Sheep Crowdsourced Evolving Art">
+  <meta name="twitter:description" content="A collaborative abstract artwork run by thousands of people all over the world: when their computers 'sleep', the Electric Sheep comes on and the computers communicate with each other by the internet to share the work of creating morphing abstract animations known as 'sheep'. Anyone watching one of these computers may vote for their favorite animations using the keyboard, which drives a genetic algorithm. Hence the flock evolves to please its global audience. The Electric Sheep are a free and open source service. The HD Gold Sheep have just been released!">
+  <meta name="twitter:image" content="https_/assets/public/images/5.html">
+
+
+  <link rel="apple-touch-icon" sizes="57x57" href="assets/public/favicons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="assets/public/favicons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="assets/public/favicons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/public/favicons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="assets/public/favicons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="assets/public/favicons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="assets/public/favicons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="assets/public/favicons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/public/favicons/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="assets/public/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="assets/public/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="assets/public/favicons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="assets/public/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="assets/public/favicons/manifest.json">
+  <link rel="shortcut icon" href="assets/public/favicons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="assets/public/favicons/mstile-144x144.png">
+  <meta name="msapplication-config" content="assets/public/favicons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/public/css/all.css">
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,700|Lato:400,700|Raleway:400,300,800' rel='stylesheet' type='text/css'>
+
+  <!--for twitter timeline-->
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+  if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+
+
+</head>
+
+<ul class="es-slideshow">
+  <li><span></span>
+  </li>
+  <li><span></span>
+  </li>
+  <li><span></span>
+  </li>
+  <li><span></span>
+  </li>
+  <li><span></span>
+  </li>
+  <li><span></span>
+  </li>
+</ul>
+
+
+
+
+  </div>
+  <!-- This url will be used as server for front end application -->
+  <script>
+    var ROOT = 'index.html';
+    var image_url = 'index.html';
+  </script>
+</header>
+
+  <div id="page-top"></div>
+  <!-- plans angular modal-->
+<script type="text/ng-template" id="plans.html">
+  <!-- CHOOSE A PLAN -->
+  <div id="form-card">
+    <div ng-if = "!user.planName && !(user.canceledSubscription)">
+      <div class="panel panel-info chooseAplan">
+        <button type="button" class="close" aria-hidden="true" ng-click="close()">&times;</button>
+        <div class="panel-heading modal-header">
+          <div class="panel-title">
+            <img width="75px" src="assets/public/images/gold-pass-graphic.svg" />
+            &nbsp;&nbsp;GOLD OPTIONS
+          </div>
+        </div>
+        <div class="panel-body modal-body">
+          <div class="panel-heading">
+            <div class="panel-title">Choose a Plan</div>
+          </div>
+          <div ng-show="loadingPlans">
+            <progressbar class="progress-striped active" type="success">[[loadbarMessage]]</progressbar>
+          </div>
+          <div class="panel-body" ng-hide="loadingPlans">
+            <a ng-repeat="plan in plans | orderBy:'amount'" class="btn btn-next btn-block"
+            ng-click="selectPlan('main',plan)">[[plan.name]] $[[plan.amount/100]]</a>
+            <a class="btn btn-next btn-block" ng-click="selectPlan('main')">Gold LifeTime $150</a>
+          </div>
+          <a ng-click="toggleGoldInfo()" class="clickable">What do you get in a subscription?</a><br>
+          <gold-difference ng-show="goldToggle"></gold-difference>
+          <a ng-click="close()" class="clickable">I'll choose my plan later...</a><br>
+        </div>
+      </div>
+    </div>
+
+    <!-- switch to another plan -->
+    <div ng-if="user.planName || user.canceledSubscription" ng-init="getCurrentDate()" >
+      <div class="panel panel-info">
+        <button type="button" class="close" aria-hidden="true" ng-click="close()">&times;</button>
+        <div class="panel-heading">
+          <div class="panel-title"><span>MEMBERSHIP DETAILS</span>
+          </div>
+        </div>
+
+        <div class="panel-body msg-box">
+          <!--current plan-->
+          <div class="col-xs-12 text-center msgBox-cont">
+            <!--normal view-->
+            <div ng-hide="showCancellation || user.canceledSubscription"><p>
+              <span class="oranged text-right">Current Plan:</span>
+              <span ng-cloak class="text-left"><strong>[[ planName() ]]</strong></span>
+            </p>
+              <small class="col-xs-12" ng-show="user.trial_end && user.trial_end > 0">
+                (You are currently within your <strong class="oranged">trial</strong> period. Since you are currently on the trial period,
+                the renewal date will be updated and reflected after it ends based upon your current plan.)
+              </small>
+
+              <p ng-cloak ng-if="user.lastFour" ng-hide="user.canceledSubscription"><small>
+                <span class="oranged col-xs-6 text-right">[[ user.brand | uppercase]]: </span>
+                <span class="col-xs-6 text-left"> XXXX-XXXX-XXXX-[[user.lastFour ]]</span>
+              </small></p>
+              <p ng-cloak ng-if="user.lastFour" ng-hide="user.canceledSubscription"><small>
+                <span class="oranged col-xs-6 text-right">Joined On:</span>
+                <span class="col-xs-6 text-left"> [[ user.created * 1000 | date ]]</span>
+              </small></p>
+              <p ng-cloak ng-hide="user.canceledSubscription || user.planName === 'lifetime' "><small>
+                <span class="oranged col-xs-6 text-right">Renewal Date: </span>
+                <span class="col-xs-6 text-left"> [[ user.planEndDate * 1000 | date ]]</span>
+              </small></p>
+
+              <br>
+              <p ng-if="user.planName!=='lifetime'">
+                <small class="cancel_subscription col-xs-12 text-center">
+                  <a ng-click="showCancelConfirmation()">Cancel my Subscription</a>
+                </small>
+              </p>
+
+              <p>
+                <small class="cancel_subscription col-xs-12 text-center">
+                  <a ng-click="canDeleteAccount()" ng-if="!user.subscriptionId">Delete my Account</a>
+                  <span ng-if="user.subscriptionId" rel="tooltip" tooltip="Cancel required before deleting">Delete my Account</span>
+                </small>
+              </p>
+
+              <p ng-cloak
+                 ng-show="user.canceledSubscription"><small>
+                <span class="oranged col-xs-6 text-right">Expiration Date:</span>
+                <span class="col-xs-6 text-left">[[ user.planEndDate * 1000 | date ]]</span>
+              </small></p>
+              <!--switching plans-->
+              <div class="btn-alignCenter" ng-if="hideUpgrades && !(user.planName==='lifetime')">
+                <a ng-click="showUpdateOptions()" class="btn btn-next ">Upgrade</a>
+              </div>
+            </div>
+
+            <div class="msgBox-cont" ng-show='deleteToggle'>
+              <p>Are you sure you want to delete your account? This cannot be undone.</p>
+              <div class="btn-alignCenter">
+                <a ng-click="delUser()" class="btn btn-next ">Delete</a>
+                <a ng-click="cancelDelete()" class="btn btn-next " style="margin-bottom:3px" >Cancel</a>
+              </div>
+            </div>
+
+            <!--CANCEL SUBSCRIPTION CONFIRMATION-->
+            <div class="msgBox-cont" ng-show='showCancellation && !deleteToggle'>
+              <p>Are you sure you want to cancel your existing subscription plan with us?</p>
+              <small>Premium features are not accessible in the free plan.</small>
+              <br>
+              <div class="btn-alignCenter">
+                <a ng-click="cancelSubscription()" class="btn btn-next ">Confirm</a>
+                <a ng-click="showCancelConfirmation()" class="btn btn-next " style="margin-bottom:3px" >Cancel</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- After cancellation -->
+          <div class="msgBox-cont" ng-show="user.canceledSubscription">
+            <p>Your subscription has been cancelled.</p>
+            <p>&nbsp;</p>
+            <p> Thank you. Your current subscription has been cancelled, but you can enjoy current plan until
+            [[user.planEndDate * 1000 | date]]!</p>
+            <div class="btn-alignCenter" ng-show="hideUpgrades">
+              <a ng-click="showUpdateOptions()" class="btn btn-next">Resubscribe</a>
+            </div>
+          </div> <!--End cancel subscription Modal-->
+
+          <!--- UPGRADE -->
+          <div ng-hide="hideUpgrades || showCancellation || user.planName==='lifetime'">
+            <h3 class="whited text-center">Available Gold Plans</h3>
+            <div ng-repeat="plan in plans | orderBy: 'amount'" style="margin-bottom:3px;">
+              <a class="btn btn-next btn-block text-left btn-plans" ng-click="selectPlan('upgrade', plan)" ng-hide="plan.id === user.planName">
+                [[plan.name]]: $[[plan.amount/100]]
+              </a>
+            </div>
+            <a class="btn btn-next btn-block btn-plans" ng-click="selectPlan('upgrade')">
+              Gold Lifetime $150
+            </a>
+            <a class="btn btn-next btn-block btn-plans" ng-click="selectPlan('cancel')">
+              Cancel
+            </a>
+          </div>
+        </div>
+        <div class="modal-footer"></div>
+      </div>
+    </div>
+  </div>
+</script>
+
+<header class="main-header resized">
+    <div class="navigation-container">
+        <div class="main-logo">
+            <a href=index.html>
+                <img class="logo_image" src="https://i.imgur.com/anJ4E8K.png" alt="Main Logo">
+            </a>
+        </div>
+        <div class="main-navigation">
+
+</header>
+
+
+<section class="intro" id="home">
+  <div class="intro-body">
+    <div class="cover">
+
+      <div id="got-gridbox">
+        <figure>
+          <a href="index.html#/download">
+            <div class="circle-container round-button">
+              <div class="circle-header">
+                Cancer<br><b>Research</b>
+              </div>
+              <div class="circle-icon">
+                <svg version="1.1"
+   xmlns="http://www.w3.org/2000/svg"
+   x="0px" y="0px" width="29px" height="30.2px" viewBox="0 0 29 30.2" enable-background="new 0 0 29 30.2" xml:space="preserve">
+<defs></defs>
+<path class="download-icon" d="M27.8,14.5h-8.5V1.2c0-0.6-0.6-1.2-1.2-1.2h-7.2c-0.6,0-1.2,0.6-1.2,1.2v13.3H1.2c-0.7,0-1.2,0.6-1.2,1.2
+  c0,0.3,0.1,0.6,0.3,0.9l13.3,13.3c0.2,0.2,0.5,0.3,0.9,0.3c0.3,0,0.6-0.1,0.9-0.3l13.2-13.2c0.2-0.3,0.4-0.6,0.4-0.9
+  C29,15,28.5,14.5,27.8,14.5z"></path>
+</svg>
+
+              </div>
+              <span class="rotate"><img src="assets/public/images/black-circle.svg" class="img-responsive"></span>
+              <span class="rotate rotation1"><img src="assets/public/images/orange-thick.svg" class="img-responsive"></span>
+              <span class="rotate rotation2"><img src="assets/public/images/orange-thin.svg" class="img-responsive"></span>
+              <span class="rotate rotation3"> <img src="assets/public/images/white20-multi.svg" class="img-responsive"></span>
+              <span class="rotate rotation4"> <img src="assets/public/images/white20-thick.svg" class="img-responsive"></span>
+            </div>
+          </a>
+        </figure>
+
+        <figure>
+          <div class="circle-container round-button" id="subscriptionBlock" ng-click="openSignupOrManagePlan()">
+            <div class="circle-header">
+              <br><b>Protein Folding</b>
+            </div>
+
+            <div class="circle-icon">
+              <a href="#">
+                <svg version="1.1"
+   xmlns="http://www.w3.org/2000/svg"
+   x="0px" y="0px" width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve">
+<defs>
+</defs>
+<g >
+  <path class="signup-icon" d="M24.6,13.9l-8.5-8.5L0,21.5V30h8.5L24.6,13.9z M8.9,25.6l-1.5,1.5H5.7L3,27.1l-0.1-2.8v-1.7l1.5-1.5
+    L8.9,25.6z M16.5,10.5l-8.6,8.6c-0.3,0.3-0.7,0.3-0.9,0.1c-0.2-0.2-0.2-0.6,0.1-0.9l8.6-8.6c0.3-0.3,0.7-0.3,0.9-0.1
+    C16.8,9.8,16.8,10.2,16.5,10.5z M29.2,9.3c1.1-1.1,1.1-2.9,0-4l-4.5-4.5c-1.1-1.1-2.9-1.1-4,0L18,3.5l8.5,8.5L29.2,9.3z"></path>
+</g>
+</svg>
+
+              </a>
+            </div>
+            <span class="rotate"><img src="assets/public/images/black-circle.svg" class="img-responsive"></span>
+            <span class="rotate rotation2"><img src="assets/public/images/orange-thick.svg" class="img-responsive"></span>
+            <span class="rotate rotation1"><img src="assets/public/images/orange-thin.svg" class="img-responsive"></span>
+            <span class="rotate rotation3"><img src="assets/public/images/white20-medium.svg" class="img-responsive"></span>
+            <span class="rotate rotation3"><img src="assets/public/images/white20-thick.svg" class="img-responsive"></span>
+            <span class="rotate rotation4"><img src="assets/public/images/white20-duo.svg" class="img-responsive"></span>
+          </div>
+        </figure>
+
+        <figure>
+          <div class="circle-container round-button">
+            <a href="newsletter/index.html" target="_self">
+              <div class="circle-header"><b>Discover</b>
+                <br>New Galaxies
+              </div>
+              <div class="circle-icon">
+                <svg version="1.1"
+   xmlns="http://www.w3.org/2000/svg"
+   x="0px" y="0px" width="24px" height="28px" viewBox="0 0 24 28" enable-background="new 0 0 24 28" xml:space="preserve">
+
+<defs>
+</defs>
+<g>
+  <path class="newsletter-icon"
+  d="M15.5,10H24v16.5c0,0.8-0.7,1.5-1.5,1.5h-21C0.7,28,0,27.3,0,26.5v-25C0,0.7,0.7,0,1.5,0H14v8.5
+    C14,9.3,14.6,10,15.5,10z M16,0.6c0.2,0.1,0.4,0.3,0.6,0.4l6.4,6.4c0.2,0.2,0.3,0.3,0.4,0.6H16V0.6z"></path>
+</g>
+</svg>
+
+              </div>
+            </a>
+            <span class="rotate"><img src="assets/public/images/black-circle.svg" class="img-responsive"></span>
+            <span class="rotate rotation1"><img src="assets/public/images/orange-thick.svg" class="img-responsive"></span>
+            <span class="rotate rotation2"><img src="assets/public/images/orange-thin.svg" class="img-responsive"></span>
+            <span class="rotate rotation4"><img src="assets/public/images/white20-multi.svg" class="img-responsive"></span>
+            <span class="rotate rotation4"><img src="assets/public/images/white20-thick.svg" class="img-responsive"></span>
+            <span class="rotate rotation3"><img src="assets/public/images/white20-thick.svg" class="img-responsive"></span>
+          </div>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</div>
+
+<link rel="stylesheet" href="assets/public/css/background-image.css">
+<link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.css">
+<link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/0.4.14/toaster.min.css">
+
+<script src="../cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.14/angular.js"></script>
+<script src="../cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.14/angular-cookies.js"></script>
+<script src="../cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.14/angular-resource.js"></script>
+<script src="../cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.14/angular-sanitize.js"></script>
+<script src="../cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.14/angular-animate.js"></script>
+<script src="../cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.3/ui-bootstrap.min.js"></script>
+<script src="../cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.3/ui-bootstrap-tpls.min.js"></script>
+<script src="../cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+<script src="../cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/2.2.0/toaster.min.js"></script>
+
+<!--for fancybox-->
+<script src="../cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="../cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.js"></script>
+<script src="../cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/helpers/jquery.fancybox-media.js"></script>
+
+<!--for stripe-->
+<script src="../unpkg.com/angular-stripe-checkout%405.1.0/angular-stripe-checkout.js"></script>
+<script src="../unpkg.com/angular-payments%401.0.7/lib/angular-payments.js"></script>
+
+
+<script>
+  var publishableStripeKey = 'pk_live_6eg0uHUuZdQ97JkcVxNROqaZ';
+</script>
+<script src="assets/public/js/scripts.min.js"></script>
+
+
+<link rel="apple-touch-icon" sizes="57x57" href="assets/public/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="assets/public/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="assets/public/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="assets/public/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="assets/public/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="assets/public/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="assets/public/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="assets/public/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/public/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="assets/public/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/public/favicons/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="assets/public/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/public/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/public/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="shortcut icon" href="assets/public/favicons/favicon.ico">
+</body>
+
+<!-- Mirrored from electricsheep.org/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 10 Nov 2019 21:14:07 GMT -->
+</html>
